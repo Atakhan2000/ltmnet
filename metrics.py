@@ -15,10 +15,11 @@ For conditions of distribution and use, see the accompanying LICENSE.md file.
 """
 
 import tensorflow as tf
-import keras.metrics
+#import keras.metrics    
+#should use import tensorflow.keras instead of import keras
+import tensorflow.keras.metrics 
 
-
-class PSNRMean(keras.metrics.Mean):
+class PSNRMean(tensorflow.keras.metrics.Mean):
     def __init__(self, name="psnr", **kwargs):
         super(PSNRMean, self).__init__(name=name, **kwargs)
 
@@ -32,7 +33,7 @@ class PSNRMean(keras.metrics.Mean):
         return tf.math.divide_no_nan(self.total, self.count)
 
 
-class SSIMMean(keras.metrics.Mean):
+class SSIMMean(tensorflow.keras.metrics.Mean):
     def __init__(self, name="ssim", **kwargs):
         super(SSIMMean, self).__init__(name=name, **kwargs)
 
@@ -46,4 +47,3 @@ class SSIMMean(keras.metrics.Mean):
 
     def result(self):
         return tf.math.divide_no_nan(self.total, self.count)
-
