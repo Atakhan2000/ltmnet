@@ -97,6 +97,11 @@ def load_data_helper(input_dir, gt_dir, im_list_fn, resize_to=(512, 512), bit_de
         gts.append(gt)
 
     if resize_to:
+       
+        if len(inputs)==0:
+          print("input is empty!")
+        #ValueError: need at least one array to stack
+        #because of empty list --> input is empty!
         inputs = np.stack(inputs)
         gts = np.stack(gts)
 
