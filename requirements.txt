@@ -15,6 +15,6 @@ Pillow~=8.2.0
 scikit-image~=0.19.2
 tifffile~=2020.10.1
 
-rawpy~=0.14.0
-exifread==2.3.2
+rawpy~=0.17.3
+exifread==3.0.0
 colour-demosaicing==0.1.6
