@@ -22,6 +22,7 @@ from augment import random_flip_left_right, random_flip_up_down, random_contrast
 from train import train
 from arg_parser import prepare_args
 from result_gen import generate_all_results
+from metrics import PSNRMean, SSIMMean
 
 '''
 Load Data
@@ -120,7 +121,7 @@ def main(args):
 
     # Generate results
     print('Evaluating...')
-    model = tf.keras.models.load_model('{}'.format(args.ckpt_dir))
+    model = tf.keras.models.load_model('{}'.format(args.ckpt_dir), custom_objects={"PSNRMean": PSNRMean, "SSIMMean": SSIMMean})
     generate_all_results(model, 'validation', args, save_dir=args.results_dir_val, show_ims=False,
                          max_predictions=args.max_val_predictions)
     generate_all_results(model, 'train', args, save_dir=args.results_dir_train, show_ims=False,
@@ -131,4 +132,5 @@ def main(args):
 
 if __name__ == '__main__':
     args = prepare_args()
+
     main(args)
