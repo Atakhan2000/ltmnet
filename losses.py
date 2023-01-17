@@ -48,4 +48,3 @@ def ltm_loss(interp_im, gt_im, weight_map, residual=None, residual_weight=0.0, v
         l1_loss = tf.reduce_mean(weight_map * tf.abs(gt_im - interp_im))
 
     return l1_loss, vgg_loss
-
