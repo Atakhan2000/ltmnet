@@ -132,5 +132,4 @@ def main(args):
 
 if __name__ == '__main__':
     args = prepare_args()
-
     main(args)
