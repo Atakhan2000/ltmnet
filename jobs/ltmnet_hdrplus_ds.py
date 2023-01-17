@@ -26,9 +26,9 @@ def prep_environment():
 def prep_file_lists(dataset_dir):
     args_str = '--out_dir "{ds}" ' \
                '--in_dir "{ds}/input" ' \
-               '--train_range 101 1500 ' \
-               '--val_range 1 100 ' \
-               '--test_range 1501 2000 ' \
+               '--train_range 4 23 ' \
+               '--val_range 1 3 ' \
+               '--test_range 24 26 ' \
         .format(ds=dataset_dir)
 
     print('Preparing file lists...')
@@ -43,8 +43,8 @@ def train(dataset_dir):
                '--val_list_fn "{ds}/images_val.txt" ' \
                '--test_list_fn "{ds}/images_test.txt" ' \
                '--exp_dir "./outputs/" ' \
-               '--batch_size 20 ' \
-               '--epochs 600 ' \
+               '--batch_size 3 ' \
+               '--epochs 5 ' \
                '--control_points 256 ' \
                '--curves 3 ' \
                '--grid_size 8 8 ' \
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     # dataset_dir
     #   dataset_dir/input
     #   dataset_dir/gt
-    dataset_dir = '/home/user/Data'
+    dataset_dir = '/content/gdrive/MyDrive/ltmnet/hdrdata_out'
     prep_environment()
     prep_file_lists(dataset_dir)
     train(dataset_dir)
